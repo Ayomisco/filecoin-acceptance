@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filecoin Africa Bootcamp Acceptance Generator</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .generator-section {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .template-canvas {
+            background-color: #f1f1f1;
+            position: relative;
+            aspect-ratio: 1 / 1.4;
+            max-width: 600px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: #f1f1f1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+                padding-bottom: 15px; /* Add padding to create space above the footer-bar */
+
+        }
+
+        .header-logos {
+    display: flex;
+    justify-content: space-around;
+    align-items: center; /* Ensures vertical alignment */
+    width: 100%;
+    padding: 10px 0px;
+
+            
+}
+
+.vertical-line {
+    width: 2px;
+    height: 20px; /* Reduced height to make the line shorter */
+    background-color: #333; /* Adjust the color as needed */
+    margin: 0 10px; /* Add spacing between the logos and the line */
+}
+
+
+        .logo {
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .date-section {
+            text-align: center;
+            margin: 15px 0;
+            color: #333;
+            font-style: normal;
+            font-weight: 100;
+        }
+
+        .main-content {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .main-content h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .main-content .accepted {
+            color: #0d6efd;
+            font-weight: bold;
+        }
+
+        .profile-section {
+            margin-top: 10px;
+            position: relative;
+        }
+
+        .profile-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 10px solid #0d6efd;
+            background-color: #e9ecef;
+            margin: 0 auto;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+        .name-section {
+            text-align: center;
+            margin: 5px 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin: 10px 0;
+            color: #0d6efd;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .footer-section {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-top: auto;
+            padding: 10px 0;
+            
+        }
+
+        .footer-section .d-flex {
+    align-items: center; /* Ensures the icon and text are vertically aligned */
+    gap: 5px; /* Adds spacing between the icon and the text */
+}
+
+        .social-icon {
+            background-color: #fff;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            margin: 0 5px;
+            font-size: 8px;
+        }
+
+        .social-icon i {
+            color: #0d6efd;
+        }
+
+        .sponsor-text {
+    position: absolute;
+    right: 10px;
+    top: 400px; /* Adjust this value to position it correctly */
+    font-size: 12px;
+    color: #666;
+    transform-origin: top right; /* Ensure proper rotation alignment */
+    transform: rotate(90deg); /* Rotate to make it vertical */
+    text-align: center;
+}
+
+        .footer-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #0d6efd;
+            position: absolute;
+            bottom: 0;
+        }
+
+        #imageUpload {
+            display: none;
+        }
+
+        .upload-preview {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 10px auto;
+            border: 3px solid #0d6efd;
+            background-color: #e9ecef;
+        }
+
+        .preview-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .form-section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+        }
+
+        .btn-primary {
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+        }
+
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+            border-color: #0a58ca;
+        }
+
+        .main-content h2 {
+    font-size: 24px; /* Ensure consistent font size */
+    margin-bottom: 5px; /* Reduce the space between the two lines */
+    text-align: center;
+}
+    </style>
+</head>
+
+<body>
+    <div class="container py-5">
+        <h1 class="text-center mb-4">Filecoin Africa Bootcamp Acceptance Generator</h1>
+
+        <div class="generator-section">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form-section">
+                        <h3 class="mb-3">Customize Your Card</h3>
+
+                        <div class="mb-3">
+                            <label for="nameInput" class="form-label">Your Name</label>
+                            <input type="text" class="form-control" id="nameInput" placeholder="Enter your name">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Your Photo</label>
+                            <div class="upload-preview" id="imagePreviewContainer">
+                                <img src="/api/placeholder/100/100" alt="Preview" class="preview-img" id="imagePreview">
+                            </div>
+                            <div class="d-grid">
+                                <label for="imageUpload" class="btn btn-outline-primary">
+                                    <i class="fas fa-upload me-2"></i>Upload Photo
+                                </label>
+                                <input type="file" id="imageUpload" accept="image/*">
+                            </div>
+                            <small class="text-muted">Recommended: Square image for best results</small>
+                        </div>
+
+                        <div class="d-grid mt-4">
+                            <button class="btn btn-primary" id="downloadBtn">
+                                <i class="fas fa-download me-2"></i>Download Your Card
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-7">
+                    <div class="template-canvas" id="cardCanvas">
+                        <div class="card-content">
+                            <div class="header-logos">
+                                <img src="orbit.png" alt="Orbit Logo" class="logo">
+                                <div class="vertical-line"></div> <!-- Add this line -->
+                                <img src="filecoin.png" alt="Filecoin Africa Logo" class="logo">
+                            </div>
+
+                            <div class="date-section">
+                                <p>Mar 21 - April 19</p>
+                            </div>
+
+                            <div class="main-content">
+                                <h2>I've been <span class="accepted">accepted</span> to</h2>
+                                <h2>FVM Bootcamp 2025</h2>
+                            </div>
+
+                            <div class="profile-section">
+                                <div class="profile-circle">
+                                    <img src="/api/placeholder/150/150" alt="Profile" class="profile-img"
+                                        id="profileImage">
+                                </div>
+                            </div>
+
+                            <div class="name-section" id="nameDisplay">
+                                Your Name
+                            </div>
+
+                            <div class="cta-section">
+                                Join me and start your<br>
+                                Filecoin joining today!
+                            </div>
+
+                            <div class="sponsor-text">
+                                Sponsored by Filecoin Foundation
+                            </div>
+
+                            <div class="footer-section">
+                                <div class="d-flex">
+                                    <div class="social-icon">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </div>
+                                    <span class="ms-1 ">filecoin-orbit-africa</span>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="social-icon">
+                                        <i class="fab fa-twitter"></i>
+                                    </div>
+                                    <span class="ms-1 ">filecoinnigeria</span>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="social-icon">
+                                        <i class="fab fa-discord"></i>
+                                    </div>
+                                    <span class="ms-1 ">filecoin</span>
+                                </div>
+                            </div>
+
+                            <div class="footer-bar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- html2canvas for screenshot functionality -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <script>
+        // Handle image upload and preview
+        document.getElementById('imageUpload').addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    // Update preview
+                    document.getElementById('imagePreview').src = event.target.result;
+                    // Update card profile image
+                    document.getElementById('profileImage').src = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Handle image preview click to trigger file upload
+        document.getElementById('imagePreviewContainer').addEventListener('click', function () {
+            document.getElementById('imageUpload').click();
+        });
+
+        // Handle name input
+        document.getElementById('nameInput').addEventListener('input', function (e) {
+            document.getElementById('nameDisplay').textContent = e.target.value || 'Your Name';
+        });
+
+        // Handle download button
+        document.getElementById('downloadBtn').addEventListener('click', function () {
+            // Make sure user has entered a name
+            const name = document.getElementById('nameInput').value;
+            if (!name || name === 'Your Name') {
+                alert('Please enter your name before downloading.');
+                return;
+            }
+
+            // Check if an image was uploaded
+            const profileSrc = document.getElementById('profileImage').src;
+            if (profileSrc.includes('/api/placeholder/')) {
+                alert('Please upload your photo before downloading.');
+                return;
+            }
+
+            // Use html2canvas to capture the card
+            html2canvas(document.getElementById('cardCanvas')).then(function (canvas) {
+                // Create download link
+                const link = document.createElement('a');
+                link.download = 'fvm-bootcamp-acceptance.png';
+                link.href = canvas.toDataURL('image/png');
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            });
+        });
+    </script>
+</body>
+
+</html>
