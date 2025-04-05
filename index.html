@@ -20,7 +20,7 @@
         }
 
         .template-canvas {
-                        height: 94%;
+                        height: 95%;
 
             background-color: #f1f1f1;
             position: relative;
@@ -149,7 +149,7 @@
             align-items: center;
             justify-content: center;
             border-radius: 5px;
-            margin: 0 5px;
+            /* margin: 0 5px; */
             font-size: 8px;
         }
 
@@ -219,9 +219,43 @@
         }
 
         .main-content h2 {
-    font-size: 24px; /* Ensure consistent font size */
+    font-size: 19px; /* Ensure consistent font size */
     margin-bottom: 5px; /* Reduce the space between the two lines */
     text-align: center;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 1208px) {
+    .generator-section {
+        max-width: 100%; /* Allow full width on smaller screens */
+        padding: 5px; /* Reduce padding for smaller screens */
+    }
+
+    .template-canvas {
+        max-width: 100%; /* Make the canvas fit the screen width */
+        height: auto; /* Allow height to adjust dynamically */
+        aspect-ratio: 1 / 1.4; /* Maintain aspect ratio */
+    }
+
+}
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .generator-section {
+        max-width: 100%; /* Allow full width on smaller screens */
+        padding: 5px; /* Reduce padding for smaller screens */
+    }
+
+    .template-canvas {
+        max-width: 100%; /* Make the canvas fit the screen width */
+        height: auto; /* Allow height to adjust dynamically */
+        aspect-ratio: 1 / 1.4; /* Maintain aspect ratio */
+    }
+
+    
+    
+    .card-content {
+        padding-bottom: 10px; /* Adjust padding for smaller screens */
+    }
 }
     </style>
 </head>
@@ -278,7 +312,7 @@
 
                             <div class="main-content">
                                 <h2>I've been <span class="accepted">accepted</span> to</h2>
-                                <h2>FVM Bootcamp 2025</h2>
+                                <h2>Filecoin Orbit Builder's Bootcamp 2025</h2>
                             </div>
 
                             <div class="profile-section">
@@ -294,7 +328,7 @@
 
                             <div class="cta-section">
                                 Join me and start your<br>
-                                Filecoin joining today!
+                                Filecoin journey today!
                             </div>
 
                             <div class="sponsor-text">
